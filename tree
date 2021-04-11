@@ -1,0 +1,20 @@
+ for (i = 0; i < n; i++)                        //构造HUFFMAN树，设置字符的编码
+    {
+        f = i;
+        header[i].bits[0] = 0;
+        while (header[f].parent != -1)
+        {
+            j = f;
+            f = header[f].parent;
+            if (header[f].lch == j)
+            {
+                j = strlen(header[i].bits);
+                memmove(header[i].bits + 1, header[i].bits, j + 1);
+                header[i].bits[0] = '0';
+            }
+            else
+            {
+                j = strlen(header[i].bits);
+                memmove(header[i].bits + 1, header[i].bits, j + 1);
+                header[i].bits[0] = '1';
+            }
